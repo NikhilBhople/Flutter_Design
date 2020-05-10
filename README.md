@@ -16,6 +16,9 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## App Screenshot
-![](images_for_github/Screenshot_1589153268.png)
-![](images_for_github/Screenshot_1589153275.png)
-![](images_for_github/Screenshot_1589153282.png)
+<p align="center">
+  <img src="image_for_github/Screenshot_1589153268.png" width="350" height="720" title="Home page">
+  <img src="image_for_github/Screenshot_1589153275.png" width="350" height="720" title="Home page">
+   <img src="image_for_github/Screenshot_1589153282.png" width="350" height="720" title="Home page">
+</p>
+
