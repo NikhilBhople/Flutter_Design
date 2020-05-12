@@ -25,7 +25,7 @@ class ExclusiveHotels extends StatelessWidget {
           ),
         ),
         Container(
-          height: 280,
+          height: 260,
           child: buildTopDestinationList(),
         )
       ],

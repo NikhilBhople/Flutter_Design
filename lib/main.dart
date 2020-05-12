@@ -13,13 +13,8 @@ class MyfirstApp extends StatefulWidget {
 
 class _HomePage extends State<MyfirstApp> {
   int _selectedIcon = 0;
-  List<IconData> icons = [
-    FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.walking,
-    FontAwesomeIcons.bicycle,
-    FontAwesomeIcons.train,
-  ];
+  int _bottomNavigationPosition = 0;
+  List<IconData> icons = getIconsList();
 
   Widget _buildIcons(int position) {
     return GestureDetector(
@@ -82,6 +77,32 @@ class _HomePage extends State<MyfirstApp> {
                   ],
                 ),
               )),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _bottomNavigationPosition,
+            items: getBottomNavigationBarItems(),
+            onTap: ((int position) {
+              setState(() {
+                _bottomNavigationPosition = position;
+              });
+            }),),
         ));
   }
+}
+
+List<IconData> getIconsList() {
+  return [
+    FontAwesomeIcons.plane,
+    FontAwesomeIcons.bed,
+    FontAwesomeIcons.walking,
+    FontAwesomeIcons.bicycle,
+    FontAwesomeIcons.train,
+  ];
+}
+
+List<BottomNavigationBarItem> getBottomNavigationBarItems() {
+  return [
+    BottomNavigationBarItem(title: Text("Home"), icon: Icon(Icons.home, size: 30,),),
+    BottomNavigationBarItem(title: Text("Favorite"), icon: Icon(Icons.favorite, size: 30,),),
+    BottomNavigationBarItem(title: Text("Profile"), icon: Icon(Icons.supervisor_account, size: 30,),),
+  ];
 }
