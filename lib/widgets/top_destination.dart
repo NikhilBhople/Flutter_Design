@@ -49,15 +49,15 @@ class TopDestination extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 children: <Widget>[
                   Positioned(
-                    bottom: 0,
+                    bottom: 5,
                     child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
                       child: Container(
                         width: 200,
-                        height: 130,
+                        height: 120,
                         padding: EdgeInsets.only(left: 16, bottom: 10, right: 16),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +78,7 @@ class TopDestination extends StatelessWidget {
                           child: Image(
                             image: AssetImage(destination.imageUrl),
                             height: 180,
-                            width: 200,
+                            width: 180,
                             fit: BoxFit.cover,
                           ),
                         ),

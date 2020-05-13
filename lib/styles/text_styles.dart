@@ -45,4 +45,8 @@ class AppStyles {
   TextStyle textStyle14White() {
     return TextStyle(color: Colors.white, fontSize: 14,);
   }
+
+  TextStyle style14Grey() {
+    return TextStyle(color: Colors.grey, fontSize: 14);
+  }
 }

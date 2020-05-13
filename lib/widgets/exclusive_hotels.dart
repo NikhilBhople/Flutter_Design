@@ -15,12 +15,18 @@ class ExclusiveHotels extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("Exclusive Hotels", style: appStyles.textStyle22BlackBold(),),
+              Text(
+                "Exclusive Hotels",
+                style: appStyles.textStyle22BlackBold(),
+              ),
               GestureDetector(
-                onTap: () {
-                  print("see all exclusive hotel tapped");
-                },
-                child: Text("See all", style: appStyles.textLinkStyle(),))
+                  onTap: () {
+                    print("see all exclusive hotel tapped");
+                  },
+                  child: Text(
+                    "See all",
+                    style: appStyles.textLinkStyle(),
+                  ))
             ],
           ),
         ),
@@ -36,7 +42,7 @@ class ExclusiveHotels extends StatelessWidget {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       itemCount: hotels.length,
-      itemBuilder: (context,position) {
+      itemBuilder: (context, position) {
         Hotel hotel = hotels[position];
         return Container(
           width: 280,
@@ -45,23 +51,28 @@ class ExclusiveHotels extends StatelessWidget {
             alignment: Alignment.topCenter,
             children: <Widget>[
               Positioned(
-                bottom: 15,
+                bottom: 5,
                 child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                   child: Container(
                     width: 260,
-                    height: 120,
-                    padding: EdgeInsets.only(left: 16,bottom: 10,right: 16),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)
-                    ) ,
+                    height: 100,
+                    padding: EdgeInsets.only(left: 16, bottom: 10, right: 16),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Text("${hotel.name}", style: appStyles.textStyle18BlackBold(),),
-                        SizedBox(height: 5,),
-                        Text(hotel.address, style: appStyles.textStyleDescription(),),
+                        Text(
+                          "${hotel.name}",
+                          style: appStyles.textStyle18BlackBold(),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          hotel.address,
+                          style: appStyles.textStyleDescription(),
+                        ),
                       ],
                     ),
                   ),
@@ -75,7 +86,7 @@ class ExclusiveHotels extends StatelessWidget {
                       child: Image(
                         image: AssetImage(hotel.imageUrl),
                         height: 180,
-                        width: 260,
+                        width: 240,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -84,17 +95,21 @@ class ExclusiveHotels extends StatelessWidget {
                       child: Container(
                         color: Colors.white,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20,right: 5,top: 5,bottom: 5),
-                          child:  Row(
-                            children: <Widget>[
-                              Icon(
-                                FontAwesomeIcons.dollarSign,
-                                color: Colors.black,
-                                size: 12,
-                              ),
-                              Text("${hotel.price}", style: appStyles.textStyle14BlackBold(),)],
-                          )
-                        ),
+                            padding: const EdgeInsets.only(
+                                left: 20, right: 5, top: 5, bottom: 5),
+                            child: Row(
+                              children: <Widget>[
+                                Icon(
+                                  FontAwesomeIcons.dollarSign,
+                                  color: Colors.black,
+                                  size: 12,
+                                ),
+                                Text(
+                                  "${hotel.price}",
+                                  style: appStyles.textStyle14BlackBold(),
+                                )
+                              ],
+                            )),
                       ),
                     )
                   ],

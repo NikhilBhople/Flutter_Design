@@ -1,3 +1,4 @@
+import 'package:firstapp/models/activity_model.dart';
 import 'package:firstapp/models/destination_model.dart';
 import 'package:firstapp/styles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DestinationDetailPage extends StatefulWidget {
   final Destination destination;
-  AppStyles appStyles = AppStyles();
+  final AppStyles appStyles = AppStyles();
 
   DestinationDetailPage(this.destination);
 
@@ -18,6 +19,7 @@ class _DestinationDetailPageState extends State<DestinationDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.grey[200],
       child: Column(
         children: <Widget>[
           Stack(
@@ -115,9 +117,141 @@ class _DestinationDetailPageState extends State<DestinationDetailPage> {
                 bottom: 20,
               )
             ],
+          ),
+          Expanded(
+            child: MediaQuery.removePadding(
+              // for removing top default padding of listview
+              removeTop: true,
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int position) {
+                  return getBottomActivityList(
+                      widget.destination.activities[position],
+                      widget.appStyles);
+                },
+                itemCount: widget.destination.activities.length,
+              ),
+              context: context,
+            ),
           )
         ],
       ),
     );
   }
+}
+
+Widget getBottomActivityList(Activity activity, AppStyles appStyles) {
+  return Stack(children: <Widget>[
+    Container(
+      height: 170,
+      width: double.infinity, // match_parent in android
+      margin: EdgeInsets.only(left: 50, right: 16, top: 5),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        child: Container(
+          margin: EdgeInsets.only(left: 85, right: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                      width: 120,
+                      child: Text(
+                        activity.name,
+                        style: appStyles.textStyle18BlackBold(),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      )),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        "\$${activity.price}",
+                        style: appStyles.textStyle22BlackBold(),
+                      ),
+                      Text(
+                        "per pax",
+                        style: appStyles.style14Grey(),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                activity.type,
+                style: appStyles.style14Grey(),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              getRatingView(activity.rating),
+              SizedBox(
+                height: 7,
+              ),
+              getStringTimeRow(activity.startTimes)
+            ],
+          ),
+        ),
+      ),
+    ),
+    Positioned(
+      left: 16,
+      top: 20,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(
+          activity.imageUrl,
+          height: 140,
+          width: 110,
+          fit: BoxFit.cover,
+        ),
+      ),
+    )
+  ]);
+}
+
+Row getStringTimeRow(List<String> startTimes) {
+  return Row(
+    children: startTimes
+        .asMap()
+        .entries
+        .map((MapEntry key) => _buildContainer(key.value))
+        .toList(),
+  );
+}
+
+Row _buildContainer(String value) {
+  return Row(children: <Widget>[
+    Container(
+      width: 70,
+      height: 25,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.blueAccent[100]),
+      padding: EdgeInsets.all(5),
+      alignment: Alignment.center,
+      child: Text(
+        value,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+        ),
+      ),
+    ),
+    SizedBox(
+      width: 15,
+    )
+  ]);
+}
+
+Text getRatingView(int rating) {
+  String ratingString = "";
+  for (int i = 0; i < rating; i++) {
+    ratingString += "⭐";
+  }
+  return Text(ratingString);
 }
