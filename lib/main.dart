@@ -14,7 +14,7 @@ class MyfirstApp extends StatefulWidget {
 class _HomePage extends State<MyfirstApp> {
   int _selectedIcon = 0;
   int _bottomNavigationPosition = 0;
-  List<IconData> icons = getIconsList();
+  List<IconData> icons = getCategoryIconsList();
 
   Widget _buildIcons(int position) {
     return GestureDetector(
@@ -89,13 +89,13 @@ class _HomePage extends State<MyfirstApp> {
   }
 }
 
-List<IconData> getIconsList() {
+List<IconData> getCategoryIconsList() {
   return [
     FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.walking,
-    FontAwesomeIcons.bicycle,
     FontAwesomeIcons.train,
+    FontAwesomeIcons.car,
+    FontAwesomeIcons.bed,
+    FontAwesomeIcons.bicycle,
   ];
 }
 

@@ -37,7 +37,16 @@ class AppStyles {
         color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold);
   }
 
+  TextStyle textStyle22WhiteBold() {
+    return TextStyle(
+        color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold);
+  }
+
   TextStyle textStyle14White() {
     return TextStyle(color: Colors.white, fontSize: 14,);
+  }
+
+  TextStyle style14Grey() {
+    return TextStyle(color: Colors.grey, fontSize: 14);
   }
 }
