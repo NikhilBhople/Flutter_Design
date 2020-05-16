@@ -15,14 +15,14 @@ It also include -
  <a href="https://imgflip.com/gif/41bnmy"><img src="https://i.imgflip.com/41bnmy.gif" title="Transation animation using Hero widget"/></a>
 
 ## App Screenshot (iOS)
-<p align="center">
+<p>
   <img src="image_for_github/homePageiOS.png" width="320" height="620" title="Home page iOS">
-  <img src="image_for_github/detailsPageiOS.png" width="380" height="620" title="Destination detail page iOS">
+  <img src="image_for_github/detailPageiOS.png" width="380" height="620" title="Destination detail page iOS">
 </p>
 
 
 ## App Screenshot (Android)
-<p align="center">
+<p>
   <img src="image_for_github/homePage.png" width="320" height="620" title="Home page Android">
   <img src="image_for_github/homePage2.png" width="320" height="620" title="Home page Android">
   <img src="image_for_github/detailPage.png" width="320" height="620" title="Destination details page Android">
