@@ -16,8 +16,8 @@ It also include -
 
 ## App Screenshot (iOS)
 <p>
-  <img src="image_for_github/homePageiOS.png" width="320" height="620" title="Home page iOS">
-  <img src="image_for_github/detailPageiOS.png" width="380" height="620" title="Destination detail page iOS">
+  <img src="image_for_github/homePageiOS.png" width="300" height="620" title="Home page iOS">
+  <img src="image_for_github/detailPageiOS.png" width="300" height="620" title="Destination detail page iOS">
 </p>
 
 
