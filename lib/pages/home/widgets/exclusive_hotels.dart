@@ -1,11 +1,9 @@
 import 'package:firstapp/models/hotel_model.dart';
-import 'package:firstapp/styles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExclusiveHotels extends StatelessWidget {
-  final AppStyles appStyles = AppStyles();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,16 +15,18 @@ class ExclusiveHotels extends StatelessWidget {
             children: <Widget>[
               Text(
                 "Exclusive Hotels",
-                style: appStyles.textStyle22BlackBold(),
+                style: Theme.of(context).textTheme.headline1,
               ),
               GestureDetector(
-                  onTap: () {
-                    print("see all exclusive hotel tapped");
-                  },
-                  child: Text(
-                    "See all",
-                    style: appStyles.textLinkStyle(),
-                  ))
+                onTap: () {
+                  print("see all exclusive hotel tapped");
+                },
+                child: Text(
+                  "See all",
+                  style: Theme.of(context).textTheme.headline3.copyWith(
+                      color: Colors.blue, fontWeight: FontWeight.normal),
+                ),
+              ),
             ],
           ),
         ),
@@ -53,7 +53,8 @@ class ExclusiveHotels extends StatelessWidget {
               Positioned(
                 bottom: 5,
                 child: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                   child: Container(
                     width: 260,
                     height: 100,
@@ -64,14 +65,17 @@ class ExclusiveHotels extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           "${hotel.name}",
-                          style: appStyles.textStyle18BlackBold(),
+                          style: Theme.of(context).textTheme.headline2,
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
                           hotel.address,
-                          style: appStyles.textStyleDescription(),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline3
+                              .copyWith(color: Colors.grey),
                         ),
                       ],
                     ),
@@ -95,21 +99,25 @@ class ExclusiveHotels extends StatelessWidget {
                       child: Container(
                         color: Colors.white,
                         child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 20, right: 5, top: 5, bottom: 5),
-                            child: Row(
-                              children: <Widget>[
-                                Icon(
-                                  FontAwesomeIcons.dollarSign,
-                                  color: Colors.black,
-                                  size: 12,
-                                ),
-                                Text(
-                                  "${hotel.price}",
-                                  style: appStyles.textStyle14BlackBold(),
-                                )
-                              ],
-                            )),
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 5, top: 5, bottom: 5),
+                          child: Row(
+                            children: <Widget>[
+                              Icon(
+                                FontAwesomeIcons.dollarSign,
+                                color: Colors.black,
+                                size: 12,
+                              ),
+                              Text(
+                                "${hotel.price}",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline3
+                                    .copyWith(color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     )
                   ],

@@ -16,19 +16,19 @@ final List<Hotel> hotels = [
   Hotel(
     imageUrl: 'assets/images/hotel1.jpg',
     name: 'Hotel Address Boutique',
-    address: '404 Great St',
+    address: '201 Great St',
     price: 300,
   ),
   Hotel(
     imageUrl: 'assets/images/hotel2.jpg',
     name: 'InterContenal Resort',
-    address: '404 Great St',
+    address: 'Arial Great St',
     price: 240,
   ),
   Hotel(
     imageUrl: 'assets/images/hotel0.jpg',
     name: 'Grand hotel',
-    address: '404 Great St',
+    address: 'Port Great St',
     price: 175,
   ),
 ];

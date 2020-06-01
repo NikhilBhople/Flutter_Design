@@ -1,11 +1,10 @@
 import 'package:firstapp/models/destination_model.dart';
-import 'package:firstapp/styles/text_styles.dart';
-import 'package:firstapp/widgets/detination_detail_screen.dart';
+import 'package:firstapp/pages/detail/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopDestination extends StatelessWidget {
-  final AppStyles appStyles = AppStyles();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,12 +14,12 @@ class TopDestination extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("Top Destination", style: appStyles.textStyle22BlackBold(),),
+              Text("Top Destination", style: Theme.of(context).textTheme.headline1),
               GestureDetector(
                   onTap: () {
                     print("see all exclusive hotel tapped");
                   },
-                  child: Text("See all", style: appStyles.textLinkStyle(),))
+                  child: Text("See all", style: Theme.of(context).textTheme.headline2.copyWith(color: Colors.blue, fontWeight: FontWeight.normal)))
             ],
           ),
         ),
@@ -40,7 +39,7 @@ class TopDestination extends StatelessWidget {
       itemBuilder: (context, position) {
         Destination destination = destinations[position];
         return GestureDetector(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DestinationDetailPage(destination))),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DestinationDetailPage(destination: destination))),
           child: Hero( // Used for animation (Shared element transaction)
             tag: destination.imageUrl, // tag should be same at both parent and child
             child: Container(
@@ -62,9 +61,9 @@ class TopDestination extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("${destination.activities.length} Activitites", style: appStyles.textStyle18BlackBold()),
+                            Text("${destination.activities.length} Activitites", style: Theme.of(context).textTheme.headline2),
                             SizedBox(height: 5,),
-                            Text(destination.description, style: appStyles.textStyleDescription(),),
+                            Text(destination.description, style: Theme.of(context).textTheme.headline3.copyWith(fontWeight: FontWeight.normal)),
                           ],
                         ),
                       ),
@@ -89,7 +88,7 @@ class TopDestination extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(destination.city, style: appStyles.textStyle18WhiteBold(),),
+                                Text(destination.city, style: Theme.of(context).textTheme.headline2.copyWith(color: Colors.white),),
                                 SizedBox(height: 2,),
                                 Row(
                                   children: <Widget>[
@@ -99,7 +98,7 @@ class TopDestination extends StatelessWidget {
                                       size: 12,
                                     ),
                                     SizedBox(width: 5,),
-                                    Text(destination.country, style: appStyles.textStyle14White(),),
+                                    Text(destination.country, style: Theme.of(context).textTheme.headline3.copyWith(color: Colors.white)),
                                   ],
                                 )
                               ],
